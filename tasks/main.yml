@@ -1,0 +1,27 @@
+---
+
+- name: install packages
+  package: 
+    name: "{{item}}"
+    state: "{{ libvirt_state }}"
+  with_items: "{{ libvirt_packages }}"
+
+- name: activate ipv4 forwarding
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: "^net.ipv4.ip_forward"
+    line: "net.ipv4.ip_forward=1"
+    state: present
+  notify:
+    - activate forwarding
+
+- name: activate ipv4 redirects
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: "^net.ipv4.conf.eth0.send_redirects"
+    line: "net.ipv4.conf.eth0.send_redirects=0"
+    state: present
+  notify:
+    - activate forwarding
+
+
