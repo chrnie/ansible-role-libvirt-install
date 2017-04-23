@@ -22,7 +22,7 @@ possible values: latest, present, absent
       - libvirt-daemon
       - virtinst
 
-define packer version
+define libvirt packages
 
 
 ## Dependencies
