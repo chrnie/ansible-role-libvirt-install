@@ -1,6 +1,6 @@
 # Ansible Role: libvirt install
 
-This ansible role install libvirt daemon
+This ansible role installs libvirt daemon
 
 
 ## Requirements
