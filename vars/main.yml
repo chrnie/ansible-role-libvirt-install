@@ -1,2 +1,17 @@
 ---
 # vars file for libvirt-install
+
+libvirt_packages:
+  "8": 
+    - qemu-kvm
+    - bridge-utils
+    - libvirt-bin
+    - python-lxml
+    - virtinst
+  "9": 
+    - qemu-kvm
+    - bridge-utils
+    - libvirt-daemon-system
+    - python-lxml
+    - virtinst
+

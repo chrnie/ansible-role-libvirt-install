@@ -2,9 +2,3 @@
 # defaults file for libvirtd
 
 libvirt_state: latest
-libvirt_packages:
-  - qemu-kvm
-  - bridge-utils
-  - libvirt-bin
-  - python-lxml
-  - virtinst
