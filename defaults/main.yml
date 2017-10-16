@@ -2,3 +2,5 @@
 # defaults file for libvirtd
 
 libvirt_state: latest
+
+libvirt_rootserver_ifName: eth0

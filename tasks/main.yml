@@ -7,21 +7,15 @@
   with_items: "{{ libvirt_packages[ansible_distribution_major_version] }}"
 
 - name: activate ipv4 forwarding
-  lineinfile:
-    dest: /etc/sysctl.conf
-    regexp: "^net.ipv4.ip_forward"
-    line: "net.ipv4.ip_forward=1"
+  sysctl:
+    name: "net.ipv4.ip_forward"
+    value: 1
     state: present
-  notify:
-    - activate forwarding
+    reload: yes
 
-- name: activate ipv4 redirects
-  lineinfile:
-    dest: /etc/sysctl.conf
-    regexp: "^net.ipv4.conf.eth0.send_redirects"
-    line: "net.ipv4.conf.eth0.send_redirects=0"
+- name: "deactivate ipv4 redirects on {{libvirt_rootserver_ifName}}"
+  sysctl:
+    name: "net.ipv4.conf.{{libvirt_rootserver_ifName}}.send_redirects"
+    value: 0
     state: present
-  notify:
-    - activate forwarding
-
-
+    reload: yes

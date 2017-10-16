@@ -1,5 +1,3 @@
 ---
 # handlers file for libvirt-install
 
-- name: activate forwarding
-  command: sysctl -p
